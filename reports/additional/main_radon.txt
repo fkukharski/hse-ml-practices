@@ -1,0 +1,51 @@
+radon mi src/data/main.py
+
+src/data/main.py - A
+
+
+
+radon raw src/data/main.py
+
+src/data/main.py
+    LOC: 415
+    LLOC: 214
+    SLOC: 259
+    Comments: 65
+    Single comments: 65
+    Multi: 4
+    Blank: 87
+    - Comment Stats
+        (C % L): 16%
+        (C % S): 25%
+        (C + M % L): 17%
+
+
+
+radon hal src/data/main.py
+
+src/data/main.py:
+    h1: 7
+    h2: 46
+    N1: 34
+    N2: 66
+    vocabulary: 53
+    length: 100
+    calculated_length: 273.7353344330258
+    volume: 572.79204545632
+    difficulty: 5.021739130434782
+    effort: 2876.412228269781
+    time: 159.80067934832115
+    bugs: 0.19093068181877335
+
+
+
+radon cc src/data/main.py -a
+
+src/data/main.py
+    F 244:0 plot_confusion_matrix - A
+    F 109:0 check_ip - A
+    F 366:0 to_tfidf - A
+    F 389:0 metrics - A
+
+4 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.25)
