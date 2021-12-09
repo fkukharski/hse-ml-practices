@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from typing import Tuple
-DIR_PATH = '/home/fkukharski/git_hws/hse-ml-practices/'
+from data.global_ import DIR_PATH
 
 def data_reading(path: str) -> pd.DataFrame:
     return pd.read_csv(path)
