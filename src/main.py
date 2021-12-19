@@ -2,9 +2,8 @@ import data_processing as processing
 import data_featuring as featuring
 import tfidf_model as tfidf_modeling
 import rand_forest_model as rand_forest_modeling
-from global_ import DIR_PATH
 
-data = processing.data_reading(DIR_PATH + "data/raw/data.csv")
+data = processing.data_reading("../data/raw/data.csv")
 clean_data = processing.data_cleaning(data)
 processed_data = featuring.manual_feature_engineering(clean_data)
 

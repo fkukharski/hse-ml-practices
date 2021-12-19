@@ -3,7 +3,6 @@ import ipaddress as ip
 from urllib.parse import urlparse
 from tldextract import extract
 import re
-from global_ import DIR_PATH
 
 
 def manual_feature_engineering(df_input: pd.DataFrame) -> pd.DataFrame:
@@ -28,5 +27,5 @@ def manual_feature_engineering(df_input: pd.DataFrame) -> pd.DataFrame:
     )
     df["domain_ip"] = df["tfldextract"].apply(lambda x: check_ip(x.domain))
     df.drop(["url", "tfldextract"], axis=1, inplace=True)
-    df.to_csv(DIR_PATH + "data/processed/processed_data.csv", index=False)
+    df.to_csv("../data/processed/processed_data.csv", index=False)
     return df

@@ -7,7 +7,6 @@ from sklearn.metrics import roc_auc_score, confusion_matrix, classification_repo
 from matplotlib import pyplot as plt
 import pandas as pd
 from conf_matrix import plot_confusion_matrix
-from global_ import DIR_PATH
 
 
 def tfidf_model(
@@ -21,7 +20,7 @@ def tfidf_model(
     log_reg = LogisticRegression()
     log_reg.fit(X_train_tfidf, y_train)
 
-    file = open(DIR_PATH + "src/reports/tfidf/report.txt", "w")
+    file = open("reports/tfidf/report.txt", "w")
     file.write("roc_auc_score (predict_proba):\n")
     file.write(
         str(roc_auc_score(y_test, log_reg.predict_proba(X_test_tfidf)[:, 1])) + "\n"
@@ -40,4 +39,4 @@ def tfidf_model(
     cnf_matrix = confusion_matrix(y_test, log_reg.predict(X_test_tfidf))
     plt.figure(figsize=(10, 8))
     plot_confusion_matrix(cnf_matrix, classes=["0", "1"], title="Confusion matrix")
-    plt.savefig(DIR_PATH + "src/reports/tfidf/confusion_matrix.png")
+    plt.savefig("reports/tfidf/confusion_matrix.png")
