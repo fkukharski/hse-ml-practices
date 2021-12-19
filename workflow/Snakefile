@@ -1,0 +1,34 @@
+from pathlib import Path
+
+rule all:
+    input:
+        Path("../src/reports/random_forest/confusion_matrix.png"),
+        Path("../src/reports/random_forest/report.txt"),
+        Path("../src/reports/tfidf/confusion_matrix.png"),
+        Path("../src/reports/tfidf/report.txt")
+
+rule read_and_clean_data:
+    input:
+        Path("../data/raw/data.csv")
+    output:
+        Path("../data/interim/clean_data.csv")
+
+rule process_data:
+    input:
+        Path("../data/interim/clean_data.csv")
+    output:
+        Path("../data/processed/processed_data.csv")
+
+rule tfidf_modeling:
+    input:
+        Path("../data/interim/clean_data.csv")
+    output:
+        Path("../src/reports/tfidf/confusion_matrix.png"),
+        Path("../src/reports/tfidf/report.txt")
+
+rule random_forest_modeling:
+    input:
+        Path("../data/processed/processed_data.csv")
+    output:
+        Path("../src/reports/random_forest/confusion_matrix.png"),
+        Path("../src/reports/random_forest/report.txt")

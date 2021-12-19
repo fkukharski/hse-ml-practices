@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in line 3 of /home/fkukharski/git_hws/hse-ml-practices/workflow/Snakefile:
+Missing input files for rule all:
+src/reports/tfidf/confusion_matrix.png
+src/reports/tfidf/report.txt
+src/reports/random_forest/confusion_matrix.png
+src/reports/random_forest/report.txt

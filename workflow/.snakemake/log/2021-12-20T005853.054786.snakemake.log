@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 10 of /home/fkukharski/git_hws/hse-ml-practices/workflow/Snakefile:
+Missing input files for rule read_and_clean_data:
+data/raw/data.csv
