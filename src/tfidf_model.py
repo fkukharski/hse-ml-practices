@@ -9,9 +9,12 @@ import pandas as pd
 from conf_matrix import plot_confusion_matrix
 from global_ import DIR_PATH
 
-def tfidf_model(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series) -> None:
+
+def tfidf_model(
+    X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series
+) -> None:
     X_train, X_test = X_train["url"], X_test["url"]
-    tfidf = TfidfVectorizer(ngram_range=(1,1), max_features=50000)
+    tfidf = TfidfVectorizer(ngram_range=(1, 1), max_features=50000)
     X_train_tfidf = tfidf.fit_transform(X_train)
     X_test_tfidf = tfidf.transform(X_test)
 
@@ -20,7 +23,9 @@ def tfidf_model(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series,
 
     file = open(DIR_PATH + "src/reports/tfidf/report.txt", "w")
     file.write("roc_auc_score (predict_proba):\n")
-    file.write(str(roc_auc_score(y_test, log_reg.predict_proba(X_test_tfidf)[:, 1])) + "\n")
+    file.write(
+        str(roc_auc_score(y_test, log_reg.predict_proba(X_test_tfidf)[:, 1])) + "\n"
+    )
     file.write("roc_auc_score (predict):\n")
     file.write(str(roc_auc_score(y_test, log_reg.predict(X_test_tfidf))) + "\n")
     file.write("\n")
@@ -29,8 +34,8 @@ def tfidf_model(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series,
     # print(roc_auc_score(y_test, log_reg.predict_proba(X_test_tfidf)[:, 1]))
     # print(roc_auc_score(y_test, log_reg.predict(X_test_tfidf)))
     # print(classification_report(y_test, log_reg.predict(X_test_tfidf)))
-    
-    font = {"size" : 15}
+
+    font = {"size": 15}
     plt.rc("font", **font)
     cnf_matrix = confusion_matrix(y_test, log_reg.predict(X_test_tfidf))
     plt.figure(figsize=(10, 8))
