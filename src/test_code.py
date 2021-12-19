@@ -4,14 +4,13 @@ from hypothesis.extra.pandas import data_frames, column, range_indexes
 from hypothesis import given, settings, strategies as st
 from hypothesis import provisional as pr
 from hypothesis.strategies._internal.core import characters
-from global_ import DIR_PATH
 from data_processing import data_reading, data_cleaning, tt_split
 from data_featuring import manual_feature_engineering
 
 
 def test_data_reading():
-    assert os.path.isfile(DIR_PATH + "data/raw/data.csv")
-    assert len(data_reading(DIR_PATH + "data/raw/data.csv")) > 0
+    assert os.path.isfile("../data/raw/data.csv")
+    assert len(data_reading("../data/raw/data.csv")) > 0
 
 
 raw_data = data_frames(
@@ -31,10 +30,10 @@ raw_data = data_frames(
 
 
 @given(df=raw_data)
-@settings(max_examples=250)
+@settings(max_examples=100)
 def test_data_cleaning(df):
     validated_df = data_cleaning(df)
-    assert os.path.isfile(DIR_PATH + "data/interim/clean_data.csv")
+    assert os.path.isfile("../data/interim/clean_data.csv")
     assert len(validated_df) == len(df.drop_duplicates())
     assert sorted(validated_df["label"].unique()) in np.array([0, 1])
 
@@ -49,7 +48,7 @@ clean_data = data_frames(
 
 
 @given(df=clean_data)
-@settings(max_examples=250)
+@settings(max_examples=100)
 def test_tt_split(df):
     df.iloc[:5, 1] = np.array([1, 1, 1, 1, 1])
     X_train, X_test, y_train, y_test = tt_split(df)
@@ -60,7 +59,7 @@ def test_tt_split(df):
 
 
 @given(df=clean_data)
-@settings(max_examples=500)
+@settings(max_examples=100)
 def test_manual_feature_engineering(df):
     returned_df = manual_feature_engineering(df)
     assert returned_df.shape[0] == df.shape[0]
@@ -69,4 +68,4 @@ def test_manual_feature_engineering(df):
     assert returned_df["num_digits_dom"].dtype == int
     assert returned_df["num_@"].dtype == int
     assert returned_df["num_slash"].dtype == int
-    assert os.path.isfile(DIR_PATH + "data/processed/processed_data.csv")
+    assert os.path.isfile("../data/processed/processed_data.csv")

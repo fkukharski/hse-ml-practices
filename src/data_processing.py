@@ -2,7 +2,6 @@ import pandas as pd
 import pandera as pa
 from sklearn.model_selection import train_test_split
 from typing import Tuple
-from global_ import DIR_PATH
 
 
 def data_reading(path: str) -> pd.DataFrame:
@@ -22,7 +21,7 @@ def data_cleaning(df: pd.DataFrame) -> pd.DataFrame:
     df.reset_index(drop=True)
     df["label"] = df["label"].map({"bad": 0, "good": 1})
     validated_df = schema.validate(df)
-    validated_df.to_csv(DIR_PATH + "data/interim/clean_data.csv", index=False)
+    validated_df.to_csv("../data/interim/clean_data.csv", index=False)
     return validated_df
 
 
