@@ -1,7 +1,7 @@
 import os
 import numpy as np
 from hypothesis.extra.pandas import data_frames, column, range_indexes
-from hypothesis import given, settings, strategies as st
+from hypothesis import given, settings, HealthCheck, strategies as st
 from hypothesis import provisional as pr
 from hypothesis.strategies._internal.core import characters
 from data_processing import data_reading, data_cleaning, tt_split
@@ -31,6 +31,7 @@ raw_data = data_frames(
 
 @given(df=raw_data)
 @settings(max_examples=100)
+@settings(suppress_health_check=HealthCheck.all())
 def test_data_cleaning(df):
     validated_df = data_cleaning(df)
     assert os.path.isfile("../data/interim/clean_data.csv")
@@ -49,6 +50,7 @@ clean_data = data_frames(
 
 @given(df=clean_data)
 @settings(max_examples=100)
+@settings(suppress_health_check=HealthCheck.all())
 def test_tt_split(df):
     df.iloc[:5, 1] = np.array([1, 1, 1, 1, 1])
     X_train, X_test, y_train, y_test = tt_split(df)
@@ -60,6 +62,7 @@ def test_tt_split(df):
 
 @given(df=clean_data)
 @settings(max_examples=100)
+@settings(suppress_health_check=HealthCheck.all())
 def test_manual_feature_engineering(df):
     returned_df = manual_feature_engineering(df)
     assert returned_df.shape[0] == df.shape[0]
