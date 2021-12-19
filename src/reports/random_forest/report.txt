@@ -1,0 +1,14 @@
+roc_auc_score (predict_proba):
+0.4164412649037965
+
+              precision    recall  f1-score   support
+
+           0       0.49      0.20      0.29     19934
+           1       0.86      0.96      0.91    103441
+
+    accuracy                           0.84    123375
+   macro avg       0.68      0.58      0.60    123375
+weighted avg       0.80      0.84      0.81    123375
+
+Best quality - 0.7269561494909788
+Parameters: {'depth': 3, 'iterations': 149, 'learning_rate': 0.1, 'loss_function': 'Logloss'}
