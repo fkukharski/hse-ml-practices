@@ -15,5 +15,5 @@ jobs:
           pip install -r requirements.txt
       - name: Run black formatter
         run: python3 -m black src
-      - name: Run tests and create coverage report
-        run: coverage run --omit */dist-packages/* -m pytest && coverage report -m
+      - name: Run tests
+        run: pytest src/test_code.py
