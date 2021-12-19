@@ -30,8 +30,7 @@ raw_data = data_frames(
 
 
 @given(df=raw_data)
-@settings(max_examples=100)
-@settings(suppress_health_check=HealthCheck.all())
+@settings(suppress_health_check=HealthCheck.all(), max_examples=100)
 def test_data_cleaning(df):
     validated_df = data_cleaning(df)
     assert os.path.isfile("../data/interim/clean_data.csv")
@@ -49,8 +48,7 @@ clean_data = data_frames(
 
 
 @given(df=clean_data)
-@settings(max_examples=100)
-@settings(suppress_health_check=HealthCheck.all())
+@settings(suppress_health_check=HealthCheck.all(), max_examples=100)
 def test_tt_split(df):
     df.iloc[:5, 1] = np.array([1, 1, 1, 1, 1])
     X_train, X_test, y_train, y_test = tt_split(df)
@@ -61,8 +59,7 @@ def test_tt_split(df):
 
 
 @given(df=clean_data)
-@settings(max_examples=100)
-@settings(suppress_health_check=HealthCheck.all())
+@settings(suppress_health_check=HealthCheck.all(), max_examples=100)
 def test_manual_feature_engineering(df):
     returned_df = manual_feature_engineering(df)
     assert returned_df.shape[0] == df.shape[0]
