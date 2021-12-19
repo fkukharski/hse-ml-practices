@@ -53,4 +53,4 @@
 Непротестированными остались файлы с обучением. На остальных данных покрытие кода тестами составило 99%. Показатель *coverage* получен путем вызова следующей команды:
 ```coverage run --omit */dist-packages/* -m pytest && coverage report -m```
 
-На выходе был получен файл */reports/additional/main\_testing\_coverage.txt*
+На выходе был получен файл */reports/additional/main\_test\_coverage.txt*

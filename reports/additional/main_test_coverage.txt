@@ -1,0 +1,38 @@
+============================================================= test session starts ==============================================================
+platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /home/fkukharski/git_hws/hse-ml-practices/src
+plugins: hypothesis-6.31.6
+collected 4 items                                                                                                                              
+
+test_code.py ....                                                                                                                        [100%]
+
+=============================================================== warnings summary ===============================================================
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1319: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1320: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1325: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1345: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1347: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1352: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1353: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1354: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1355: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1356: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1357: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1358: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1359: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1360: 1 warning
+../../../.local/lib/python3.8/site-packages/modin/core/storage_formats/pandas/query_compiler.py:1381: 1 warning
+  DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+  Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+================================================== 4 passed, 15 warnings in 136.91s (0:02:16) ==================================================
+Name                 Stmts   Miss  Cover   Missing
+--------------------------------------------------
+__init__.py              0      0   100%
+data_featuring.py       25      1    96%   12
+data_processing.py      29      0   100%
+global_.py               1      0   100%
+test_code.py            41      0   100%
+--------------------------------------------------
+TOTAL                   96      1    99%
