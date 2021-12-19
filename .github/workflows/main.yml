@@ -16,4 +16,4 @@ jobs:
       - name: Run black formatter
         run: python3 -m black src
       - name: Run tests
-        run: pytest src/test_code.py
+        run: cd src; pytest
